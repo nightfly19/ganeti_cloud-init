@@ -54,3 +54,7 @@ Your disk 0 should be at least the same size as the cloud image for the variant 
 ```
 gnt-instance add --disk-template plain --disk 0:size=15G --disk 1:size=1G --hypervisor-parameters kvm:boot_order=disk --os-type cloud-init+ubuntu-trusty example.com
 ```
+
+## Where to get cloud images:
+
+http://docs.openstack.org/image-guide/content/ch_obtaining_images.html
