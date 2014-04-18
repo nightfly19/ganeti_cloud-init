@@ -17,9 +17,9 @@
 
 # Load the configurations for this os definition
 if [ -f environment.sh ]; then
-	. environment.sh
+    . environment.sh
 else
-	exit 1
+    exit 1
 fi
 
 cloud_image="${cloud_images}/${OS_VARIANT}.img.raw"
