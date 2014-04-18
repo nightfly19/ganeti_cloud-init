@@ -21,16 +21,16 @@ set -e
 
 # Executing a full raw backup of the device using dd making a file-disk-image.
 if [ ! -b $blockdev ]; then
-	echo "ERROR: ${blockdev} is not a Block Device."
-	cleanup
-	exit 1
+    echo "ERROR: ${blockdev} is not a Block Device."
+    cleanup
+    exit 1
 fi
 
 # Load the configurations for this os definition
 if [ -f environment.sh ]; then
-	. environment.sh
+    . environment.sh
 else
-	exit 1
+    exit 1
 fi
 
 # File to use as template to create the rebuild helper script
@@ -50,9 +50,9 @@ TMP_DIR="/tmp/ganeti-export/${INSTANCE_NAME}"
 # Create into the backup directory the shell script helper to help the user to 
 # rebuild the instance 
 cat ${REBUILD_TEMPLATE} | sed -e "s/%INSTANCE_NAME%/${INSTANCE_NAME}/g" \
-	   -e "s/%INSTANCE_PRIMARY_NODE%/${INSTANCE_PRIMARY_NODE}/g" \
-	   -e "s/%INSTANCE_SECONDARY_NODES%/${INSTANCE_SECONDARY_NODES}/g" \
-	   > ${TMP_DIR}/rebuild.sh
+   -e "s/%INSTANCE_PRIMARY_NODE%/${INSTANCE_PRIMARY_NODE}/g" \
+   -e "s/%INSTANCE_SECONDARY_NODES%/${INSTANCE_SECONDARY_NODES}/g" \
+   > ${TMP_DIR}/rebuild.sh
 
 # Copy the files into the backup directory 
 # NOTE: One of the following commands always fails

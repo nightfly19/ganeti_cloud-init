@@ -44,9 +44,9 @@ echo "      [Hit CTRL+C to stop the count down.]"
 # Run the timeout timer..
 Counter=${TIMEOUT}
 while [ ${Counter} -gt 0 ]; do
-	echo -n "${Counter}.. "
-	Counter=$((${Counter} -1))
-	sleep 1
+    echo -n "${Counter}.. "
+    Counter=$((${Counter} -1))
+    sleep 1
 done
 echo "${Counter}.. Ok, let's start.."
 

@@ -17,9 +17,9 @@
 
 # Load the configurations for this os definition
 if [ -f environment.sh ]; then
-	. environment.sh
+    . environment.sh
 else
-	exit 1
+    exit 1
 fi
 
 cloud_image="${cloud_images}/${OS_VARIANT}.img.raw"
@@ -36,7 +36,7 @@ fi
 
 short_instance_name=$(echo $INSTANCE_NAME | cut -d '.' -f 1)
 
-cloud_init_file="/tmp/cloud_init_$INSTANCE_NAME"
+cloud_init_file=`mktemp /tmp/cloud_init_${INSTANCE_NAME}XXXX`
 
 cat > $cloud_init_file <<EOF
 #cloud-config
@@ -52,5 +52,7 @@ ssh_pwauth: False
 EOF
 
 /usr/bin/cloud-localds $cloud_init_file.img $cloud_init_file && \
+rm -f $cloud_init_file && \
 dd if="$cloud_init_file.img" of="$DISK_1_PATH" && \
+rm -f $cloud_init_file.img && \
 dd if="$cloud_image" of="$DISK_0_PATH"

@@ -23,9 +23,9 @@ set -e
 #      original disk. The rebuild script into the backup directory can help you.
 
 if [ ! -b $blockdev ]; then
-        echo "ERROR: ${blockdev} is not a Block Device."
-        cleanup
-        exit 1
+    echo "ERROR: ${blockdev} is not a Block Device."
+    cleanup
+    exit 1
 fi
 
 gzip -d -c | dd of=${blockdev} bs=512
