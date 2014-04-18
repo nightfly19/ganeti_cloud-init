@@ -2,6 +2,18 @@
 
 Provision Ganeti VMs with [cloud images](http://cloud-images.ubuntu.com)
 
+
+## [Ganeti](http://code.google.com/p/ganeti/) is a cluster virtual server managment tool that leverages the KVM and XEN hypervisors.
+
+[Ganeti cloud-init](https://github.com/pdxcat/ganeti_cloud-init) is a ganeti [os definition](http://docs.ganeti.org/ganeti/2.11/man/ganeti-os-interface.html) that creates ganeti instance from cloud images. Cloud images are Amazon/openstack-ready disk images containing pre-installed operating systems. They are produced regularly by all major linux distribution vendors.
+
+The advantages to installing virtual machines from cloud images are:
+
+* Speed: This is much faster than using PXE boot or cdrom boot to load virtual machines.
+* Consistency: These images will be identical to amazon AMIs or machines running on an openstack cluster.
+* Lower effort: The OSUOSL Ganeti-instance-image project can produce a similar effect, but requires the administrator to provide their own dump/image files. These images can be pulled from the internet.
+
+
 ## How To Use
 
 ### Requirements
