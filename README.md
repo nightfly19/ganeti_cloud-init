@@ -20,6 +20,8 @@ The advantages to installing virtual machines from cloud images are:
 
 Currently this provisioner uses the cloud-localds that is provided by Ubuntu version 0.27 of the cloud-utils package. This utility requires genisoimage to work.
 
+If your system doesn't have cloud-localds, you can download it [here](https://gist.github.com/cpswan/6221258)
+
 This has only been tested using a KVM hypervisor, YMMV with other hypervisors.
 
 ### Configuration and Files
